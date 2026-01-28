@@ -9,8 +9,8 @@ services:
       CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
       CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
     volumes:
-      - ${CLAWDBOT_CONFIG_DIR}:/home/node/.clawdbot
-      - ${CLAWDBOT_WORKSPACE_DIR}:/home/node/clawd
+      - ${CLAWDBOT_CONFIG_DIR}:/home/node/.moltbot
+      - ${CLAWDBOT_WORKSPACE_DIR}:/home/node/molty
     ports:
       - "${CLAWDBOT_GATEWAY_PORT:-18789}:18789"
       - "${CLAWDBOT_BRIDGE_PORT:-18790}:18790"
@@ -24,7 +24,7 @@ services:
         "--bind",
         "${CLAWDBOT_GATEWAY_BIND:-lan}",
         "--port",
-        "${CLAWDBOT_GATEWAY_PORT:-18789}"
+        "${CLAWDBOT_GATEWAY_PORT:-18789}",
       ]
 
   moltbot-cli:
@@ -37,8 +37,8 @@ services:
       CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
       CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
     volumes:
-      - ${CLAWDBOT_CONFIG_DIR}:/home/node/.clawdbot
-      - ${CLAWDBOT_WORKSPACE_DIR}:/home/node/clawd
+      - ${CLAWDBOT_CONFIG_DIR}:/home/node/.moltbot
+      - ${CLAWDBOT_WORKSPACE_DIR}:/home/node/molty
     stdin_open: true
     tty: true
     init: true
